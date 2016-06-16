@@ -4,8 +4,7 @@ import { Result } from './result';
 
 @Component({
     selector: 'movie-details',
-    template:
-    `<div><span class="badge">{{movieDetails.imdbID}}</span> {{movieDetails.Title}}</div>`
+    templateUrl: 'app/views/moviedetails.html'
 })
 
 export class MovieDetailsComponent {
