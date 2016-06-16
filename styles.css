@@ -10,6 +10,15 @@ body {
 md-card.result, md-card.result:hover {
     background: inherit;
     box-shadow: none;
+    padding: 0 10px 0 10px;
+}
+
+search-results .ui-accordion .ui-accordion-content {
+    padding: 0 2.2em 0.5em;
+}
+
+md-card.result md-card-subtitle {
+    margin-bottom: 0;
 }
 
 img[md-card-sm-image] {

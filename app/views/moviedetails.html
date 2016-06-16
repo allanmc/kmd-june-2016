@@ -1,5 +1,5 @@
 <div>
     <div class="type"><span class="label">Type: </span>{{ movieDetails.Type }} </div>
-    <div class="year"><span class="label">Year: </span>{{ movieDetails.Year }}</div>
-    <div class="discrption" *ngIf="movieDetails.Details"><span class="label">Description: </span> {{movieDetails.Details.Plot }} </div>
+    <div class="actors" *ngIf="movieDetails.Details"><span class="label">Actors: </span>{{ movieDetails.Details.Actors }}</div>
+    <div class="description" *ngIf="movieDetails.Details"><span class="label">Description: </span> {{movieDetails.Details.Plot }} </div>
 </div>
