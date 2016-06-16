@@ -3,6 +3,9 @@ import { Result } from './result';
 
 import { SearchResultsComponent } from './searchresults.component';
 import { OmdbSearchComponent } from './omdbsearch.component';
+import { OmdbService } from './omdb.service';
+import { HTTP_PROVIDERS } from '@angular/http';
+
 
 @Component({
     selector: 'my-app',
@@ -13,6 +16,7 @@ import { OmdbSearchComponent } from './omdbsearch.component';
     <search-results [results]="results"></search-results>
       `,
     directives: [SearchResultsComponent, OmdbSearchComponent],
+    providers: [OmdbService, HTTP_PROVIDERS]
 })
 export class AppComponent {
     results: Result[] = [];
