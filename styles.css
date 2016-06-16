@@ -23,6 +23,8 @@ md-card.result md-card-subtitle {
 
 img[md-card-sm-image] {
     width: auto !important;
+    border-radius: 6px;
+    padding: 2px;
 }
 
 /*
