@@ -15,6 +15,11 @@ import {Header} from 'primeng/primeng';
 export class SearchResultComponent {
     @Input()
     result: Result;
+
+    onTabShow() {
+        console.log("from result");
+        this.result = null;
+    }
 }
 
 

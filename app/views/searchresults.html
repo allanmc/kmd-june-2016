@@ -1,5 +1,5 @@
-<p-accordion *ngIf="results">
-    <p-accordionTab  *ngFor="let result of results">
+<p-accordion *ngIf="results"  (onOpen)="onTabShow($event)">
+        <p-accordionTab  *ngFor="let result of results" >
         <header>
             <search-result [result]="result"></search-result>
         </header>

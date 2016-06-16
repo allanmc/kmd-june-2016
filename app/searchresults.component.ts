@@ -9,14 +9,25 @@ import { Accordion } from 'primeng/primeng';
 import { AccordionTab } from 'primeng/primeng';
 import {Header} from 'primeng/primeng';
 import { MovieDetailsComponent } from './movie-details.component';
+import { OmdbService } from './omdb.service';
+import { Inject } from '@angular/core';
 
 @Component({
     selector: 'search-results',
     templateUrl: 'app/views/searchresults.html',
     directives: [SearchResultComponent, MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_LIST_DIRECTIVES, MD_ICON_DIRECTIVES, Accordion, AccordionTab, Header, MovieDetailsComponent],
-    providers: [MdIconRegistry]
+    providers: [MdIconRegistry, OmdbService]
 })
 export class SearchResultsComponent {
     @Input()
     results: Result[];
+
+    constructor(@Inject(OmdbService) public omdbService: OmdbService) { }
+
+    onTabShow(event) {
+       console.log("from results");
+        //console.log(this.results[event.index]);
+        this.omdbService.details(this.results[event.index].imdbID).subscribe(details => this.results[event.index].Details = details);
+
+    }
 } 
