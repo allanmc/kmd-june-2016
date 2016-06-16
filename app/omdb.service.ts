@@ -1,26 +1,40 @@
 import { Inject } from '@angular/core';
 import { Result } from './result';
+import { MovieDetails } from './moviedetails';
 import { Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 export class OmdbService {
-    private url: string = 'http://www.omdbapi.com/?s=';
+    private baseUrl = 'http://www.omdbapi.com/?';
+    private searchUrl: string = this.baseUrl+'s=';
+    private detailsUrl: string = this.baseUrl+'plot=short&t=';
 
     constructor(@Inject(Http) public http: Http) {
 
     }
 
     search(title): Observable<Result[]> {
-        return this.http.get(this.url + title)
-            .map(this.extractData)
+        return this.http.get(this.searchUrl + title)
+            .map(this.extractSearch)
             .catch(this.handleError);
     }
 
-    private extractData(res: Response) {
+    details(title): Observable<MovieDetails> {
+        return this.http.get(this.detailsUrl+title)
+            .map(this.extractDetails)
+            .catch(this.handleError);
+    }
+
+    private extractSearch(res: Response) {
         let body = res.json();
         return body.Search || [];
+    }
+
+    private extractDetails(res: Response) {
+        let body = res.json();
+        return body || {};
     }
 
     private handleError (error: any) {
