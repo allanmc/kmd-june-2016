@@ -25,7 +25,8 @@
         'button',
         'card',
         'list',
-        'icon'
+        'icon',
+        'input'
     ];
 
     materialPkgs.forEach(function packIndex(pkgName) {
