@@ -1,9 +1,9 @@
-<div *ngIf="results">
-    <search-result
-            *ngFor="let result of results"
-            [result]="result"
-            class="result"
-            [class.selected]="result === selectedResult"
-            (click)="onSelect(result)"
-    ></search-result>
-</div>
+<p-accordion *ngIf="results">
+    <p-accordionTab header="{{result.Title}}" *ngFor="let result of results">
+        <search-result
+                [result]="result"
+                class="result"
+                (click)="onSelect(result)"
+        ></search-result>
+    </p-accordionTab>
+</p-accordion>
