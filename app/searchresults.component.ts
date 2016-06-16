@@ -23,4 +23,4 @@ export class SearchResultsComponent {
     selectedResult: Result;
 
     onSelect(result: Result) { this.selectedResult = result; }
-}
+} 
