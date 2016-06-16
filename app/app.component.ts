@@ -6,7 +6,6 @@ import { OmdbSearchComponent } from './omdbsearch.component';
 import { OmdbService } from './omdb.service';
 import { HTTP_PROVIDERS } from '@angular/http';
 
-
 @Component({
     selector: 'my-app',
     template: `
@@ -20,15 +19,10 @@ import { HTTP_PROVIDERS } from '@angular/http';
 })
 export class AppComponent {
     results: Result[] = [];
-    offset: number = 0;
 
     onResults(results) {
         if(results) {
-            console.log("length = %o", results.length);
-            this.offset+=this.results.length;
             this.results = results;
-            console.log("this.results = %o", this.results.length);
         }
     }
-
 }
