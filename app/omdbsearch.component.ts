@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'search-result',
+    selector: 'omdb-search',
     template: `
     <div>[insert search field here]</div>
   `
