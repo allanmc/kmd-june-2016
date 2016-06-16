@@ -16,7 +16,6 @@ import { OmdbSearchComponent } from './omdbsearch.component';
 })
 export class AppComponent {
     results: Result[] = [];
-    selectedResult: Result = new Result();
 
     onResults(results) {
         this.results = results;

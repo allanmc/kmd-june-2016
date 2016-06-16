@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { OmdbService } from './omdb.service';
 import { Result } from './result';
 import { HTTP_PROVIDERS } from '@angular/http';
