@@ -4,7 +4,17 @@ import { Result } from './result';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>',
+    template: `
+    <h1>{{title}}</h1>
+    <h2>My Heroes</h2>
+    <ul class="results">
+      <li *ngFor="let result of results"
+        [class.selected]="result === selectedResult"
+        (click)="onSelect(result)">
+        <span class="badge">{{result.imdbID}}</span> {{result.Title}}
+      </li>
+    </ul>
+  `,
     providers: [OmdbService]
 })
 export class AppComponent implements OnInit {
