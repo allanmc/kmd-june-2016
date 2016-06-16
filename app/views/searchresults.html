@@ -1,3 +1,8 @@
-<div *ngIf="results">
-    <search-result *ngFor="let result of results" [result]="result"></search-result>
-</div>
+<p-accordion *ngIf="results">
+    <p-accordionTab  *ngFor="let result of results">
+        <header>
+            <search-result [result]="result"></search-result>
+        </header>
+        <movie-details [movieDetails] = "result"></movie-details>
+    </p-accordionTab>
+</p-accordion>
