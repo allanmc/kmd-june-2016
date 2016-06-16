@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 export class OmdbService {
     private baseUrl = 'http://www.omdbapi.com/?';
     private searchUrl: string = this.baseUrl+'s=';
-    private detailsUrl: string = this.baseUrl+'plot=short&t=';
+    private detailsUrl: string = this.baseUrl+'plot=short&i=';
 
     constructor(@Inject(Http) public http: Http) {
 
@@ -21,8 +21,8 @@ export class OmdbService {
             .catch(this.handleError);
     }
 
-    details(title): Observable<MovieDetails> {
-        return this.http.get(this.detailsUrl+title)
+    details(id): Observable<MovieDetails> {
+        return this.http.get(this.detailsUrl+id)
             .map(this.extractDetails)
             .catch(this.handleError);
     }
