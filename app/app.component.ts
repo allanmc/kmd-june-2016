@@ -20,9 +20,15 @@ import { HTTP_PROVIDERS } from '@angular/http';
 })
 export class AppComponent {
     results: Result[] = [];
+    offset: number = 0;
 
     onResults(results) {
-        this.results = results;
+        if(results) {
+            console.log("length = %o", results.length);
+            this.offset+=this.results.length;
+            this.results = results;
+            console.log("this.results = %o", this.results.length);
+        }
     }
 
 }

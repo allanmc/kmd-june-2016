@@ -1,5 +1,6 @@
 <md-card class="result">
     <md-card-title-group>
+        <span class="imdbID" id="{{result.imdbID}}"></span>
         <img *ngIf="result.Poster != 'N/A'" md-card-sm-image src="{{result.Poster}}">
         <md-card-title>{{result.Title}}</md-card-title>
         <md-card-subtitle>Year: {{result.Year}}</md-card-subtitle>

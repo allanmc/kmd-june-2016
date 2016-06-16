@@ -11,6 +11,7 @@ import {Header} from 'primeng/primeng';
 import { MovieDetailsComponent } from './movie-details.component';
 import { OmdbService } from './omdb.service';
 import { Inject } from '@angular/core';
+import {MovieDetails} from "./moviedetails";
 
 @Component({
     selector: 'search-results',
@@ -25,9 +26,32 @@ export class SearchResultsComponent {
     constructor(@Inject(OmdbService) public omdbService: OmdbService) { }
 
     onTabShow(event) {
-       console.log("from results");
-        //console.log(this.results[event.index]);
-        this.omdbService.details(this.results[event.index].imdbID).subscribe(details => this.results[event.index].Details = details);
+        var correctParent = this.findCorrectParent(event.originalEvent.target);
 
+        var querySelector = correctParent.querySelector('.imdbID');
+        if (querySelector) {
+            var imdb = querySelector.id;
+            this.omdbService.details(imdb).subscribe(details => this.findByImdbId(imdb, this.results).Details = details);
+        } else {
+            console.log("Could not find queryselector "+querySelector);
+        }
+
+    }
+
+    findCorrectParent(node) {
+        var counter  = 0;
+        var n = node;
+        while (n.nodeName != "p-accordiontab" && counter < 10) {
+            counter++;
+            n = node.parentNode;
+        }
+        return n;
+    }
+
+    findByImdbId(imdbid: string, detailsList: Result[]): Result {
+        for (let details of detailsList) {
+            if (details.imdbID == imdbid) return details;
+        }
+        return null;
     }
 } 
