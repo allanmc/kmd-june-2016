@@ -3,7 +3,7 @@ import { Result } from './result';
 import { RESULTS } from './mock-results';
 @Injectable()
 export class OmdbService {
-    search() {
+    search(): Promise<Result[]> {
         return Promise.resolve(RESULTS);
     }
 }

@@ -4,9 +4,7 @@ import { MovieDetailsComponent } from './movie-details.component';
 
 @Component({
     selector: 'search-result',
-    template: `
-    <movie-details [movieDetails] = "result"></movie-details>
-  `,
+    templateUrl: 'app/views/searchresult.html',
     directives: [MovieDetailsComponent]
 })
 export class SearchResultComponent {

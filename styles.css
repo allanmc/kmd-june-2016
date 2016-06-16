@@ -6,6 +6,19 @@ h1 {
 body {
     margin: 2em;
 }
+
+.result {
+    display: block;
+    width: 500px;
+    height:50px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.result.selected {
+    background-color: green;
+}
+
 /*
  * See https://github.com/angular/angular.io/blob/master/public/docs/_examples/styles.css
  * for the full set of master styles used by the documentation samples

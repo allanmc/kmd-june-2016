@@ -1,0 +1,9 @@
+<div *ngIf="results">
+    <search-result
+            *ngFor="let result of results"
+            [result]="result"
+            class="result"
+            [class.selected]="result === selectedResult"
+            (click)="onSelect(result)"
+    ></search-result>
+</div>
